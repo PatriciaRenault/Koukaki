@@ -7,3 +7,166 @@
  Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
  Version: 0.1
  */
+
+ /* ---------- Animation au chargement de la page ---------- */
+// Effet de fade-in des sections
+@keyframes fade-in-down {
+  0% {
+      opacity: 0;
+      transform: translateY(-200px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+      opacity: 0;
+      transform: translateY(300px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+// logo et banner
+ .banner {
+    position: relative;
+    object-fit: contain;
+    height: 800px;  
+    background-image: none;
+      &__background {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        min-width: 1440px !important;
+        opacity: 1;
+        animation: fade-in-down 2s ease-in-out 300ms both;
+      }
+      &__logo {
+        opacity: 1;
+        animation: fade-in-up 2s ease-in-out 300ms both;
+      }
+    }
+
+
+
+.story, #studio, .site-footer {
+  animation: fade-in-up 2s ease-in-out;
+}
+
+.banner,.story__article p, #place p, #studio p {
+animation: fade-in-down 2s ease-in-out;
+}
+
+
+
+
+ /* effet de fleurs qui tournent en continu sur elles-mêmes */
+  
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+ }
+
+.story__article::after,
+.story h2::after,
+.site-footer ul::after,
+.site-footer::after,
+.site-footer::before,
+#studio h2::before,
+#studio h2::after {
+  position: absolute;
+  animation: rotation 5s infinite linear;
+}
+
+.story__article::after {
+  content: url("./assets/images/Hibiscus.png");
+  left: calc(50% + 414px);
+  top: 2em;
+}
+
+
+.site-footer ul::after {
+  content: url("./assets/images/hibiscus_footer.png");
+  left: calc(50% - 323px);
+  bottom: -28.5em;
+  z-index: -1;
+}
+.site-footer::after {
+	content: url("./assets/images/orchid.png");
+	position: absolute;
+	right: -4em;
+	bottom: 32em;
+}
+
+
+.site-footer::before {
+  content: url("./assets/images/Sunflower.png");
+  left: 4em;
+  top: 0;
+
+}
+
+#studio h2::before {
+  content: url("./assets/images/random_flower.png");
+  left: -1em;
+  top: 0;
+}
+
+#studio h2::after {
+  content: url("./assets/images/flower.png");
+  right: 1em;
+
+  top: 1.2em;
+}
+
+// Apparition des titres au scroll
+.invisible {
+  opacity: 0;
+}
+
+.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 span, h3 span {  
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(80px);
+  transition: transform 1s, opacity 0.5s;
+}
+
+/*section-finale des oscars*/
+.nominations{
+	display: flex;
+   justify-content: center;
+   width: 100%;
+   min-height: 275px;
+   margin-top: 10%;
+   margin-bottom: -25%;
+   position: relative;
+   z-index: -1;
+}
+
+.nominations h3{
+	background-image: url("./assets/images/fondorange.png");
+   font-size: 2.5rem;
+   text-align: left;
+   margin-bottom: 10px;
+}
+.nominations img{
+	object-fit: contain;
+}
+
+.site-footer ul {
+   margin-top: 25%;
+}
