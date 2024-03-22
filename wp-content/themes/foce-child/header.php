@@ -40,5 +40,15 @@
                 <li><a href="#studio">Studio Koukaki</a></li>
             </ul>
 
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+		</nav><!-- #site-navigation 
+
+        
+   <img class="orchid-burger" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/Orchid.png'; ?> " alt="image d'une orchidé violette">   
+    <img class="marguerite-burger" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/Sunflower.png'; ?> " alt="image d'une marguerite">
+    <img class="random-flower-burger" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/Random-Flower.png'; ?> " alt="image d'une fleur">
+    <img class="flower-burger" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/Flower.png'; ?> " alt="image d'une fleur orange">
+    <img class="hibiscus" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/hibiscus.png'; ?> " alt="image d'une fleur hibiscus">
+
+    -->
+	
+</header><!-- #masthead -->

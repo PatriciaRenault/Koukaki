@@ -8,74 +8,80 @@
  Version: 0.1
  */
 
- /* ---------- Animation au chargement de la page ---------- */
-// Effet de fade-in des sections
-@keyframes fade-in-down {
-  0% {
-      opacity: 0;
-      transform: translateY(-200px);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
-@keyframes fade-in-up {
-  0% {
-      opacity: 0;
-      transform: translateY(300px);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
-// logo et banner
- .banner {
-    position: relative;
-    object-fit: contain;
-    height: 800px;  
-    background-image: none;
-      &__background {
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        min-width: 1440px !important;
-        opacity: 1;
-        animation: fade-in-down 2s ease-in-out 300ms both;
-      }
-      &__logo {
-        opacity: 1;
-        animation: fade-in-up 2s ease-in-out 300ms both;
-      }
-    }
+ @import "animations";
 
 
+
+
+/* ---------- Animation des sections au chargement de la page ---------- */
 
 .story, #studio, .site-footer {
-  animation: fade-in-up 2s ease-in-out;
+  animation: fade-in-up 10s ease-in-out;
 }
 
 .banner,.story__article p, #place p, #studio p {
-animation: fade-in-down 2s ease-in-out;
+animation: fade-in-down 10s ease-in-out;
 }
 
 
+// logo et banner
 
-
- /* effet de fleurs qui tournent en continu sur elles-mêmes */
+.banner {
+  position: relative;
+  img {
+    z-index: 1;
+    position: sticky;
+    margin-top: -14%;
+    margin-left: 1%;
+    width: 51em;
+    animation: floatLogo 6s 10s ease-in-out infinite, fade-in-up 10s ease-in-out;
+  }
+  &__video{
+    object-fit: fill;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    z-index: 0;
   
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
   }
-  100% {
-    transform: rotate(360deg);
-  }
- }
+}
 
+parallaxe
+
+#logo-parallax {
+  z-index: 10;
+}
+    
+ /* -------------effet de fleurs qui tournent en continu sur elles-mêmes ------------------*/
+
+ /* Rotation des fleurs
+:root {
+  --rotation: 12s;
+}
+.story h2::after {
+  width: 154px;
+  height: 154px;
+}
+#studio h2::after {
+  width: 125px;
+  height: 125px;
+}
+.site-footer::after {
+	position: absolute;
+	right: -4em;
+	bottom: 32em;
+}
+
+.story__article::after, 
+h2::after, 
+#studio h2::before, 
+.site-footer::before, 
+.site-footer::after, 
+ul::after {
+  animation: rotation 5s linear infinite;
+}*/
+  
 .story__article::after,
 .story h2::after,
 .site-footer ul::after,
@@ -107,7 +113,6 @@ animation: fade-in-down 2s ease-in-out;
 	bottom: 32em;
 }
 
-
 .site-footer::before {
   content: url("./assets/images/Sunflower.png");
   left: 4em;
@@ -128,24 +133,12 @@ animation: fade-in-down 2s ease-in-out;
   top: 1.2em;
 }
 
-// Apparition des titres au scroll
-.invisible {
-  opacity: 0;
-}
+/* ------------------Apparition des titres au scroll----------------------------*/
 
-.active {
-  opacity: 1;
-  transform: translateY(0);
-}
 
-h2 span, h3 span {  
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(80px);
-  transition: transform 1s, opacity 0.5s;
-}
 
-/*section-finale des oscars*/
+
+/*--------------------section-finale des oscars---------------------*/
 .nominations{
 	display: flex;
    justify-content: center;
@@ -162,6 +155,7 @@ h2 span, h3 span {
    font-size: 2.5rem;
    text-align: left;
    margin-bottom: 10px;
+
 }
 .nominations img{
 	object-fit: contain;
@@ -170,3 +164,41 @@ h2 span, h3 span {
 .site-footer ul {
    margin-top: 25%;
 }
+/*-------------------carroussel des chats--------------------------*/
+#story.story {
+  overflow: hidden;
+
+  & #characters {
+    h3 {
+      width: 55%;
+    }
+
+  }
+}
+
+.swiper-slide {
+  width: 300px;
+  height: auto;
+}
+
+/*---------------parralaxe des nuages -----------------------*/
+.story #place {
+  background-image: url("./assets/images/Studio_Koukaki-image_place.png");
+  background-size: cover;
+}
+#big_cloud {
+  position: absolute;
+  top: 69%;
+  display: block;
+  left: calc(-3% - 300px);
+  filter: blur(15px);
+}
+  
+#little_cloud {
+  position: absolute;
+  top: 78%;
+  left: calc(-21% - 300px);
+  filter: blur(15px);
+}
+
+

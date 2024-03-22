@@ -1,6 +1,9 @@
 <?php
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
+    // ajout de swiper 
+    wp_enqueue_script('swiper', get_stylesheet_directory_uri() . '/node_modules/swiper/swiper-bundle.min.js', array(), 1.1, true);
+    wp_enqueue_style('swiper-css', get_stylesheet_directory_uri() . '/node_modules/swiper/swiper-bundle.min.css');
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
     //fichier css theme enfant
     wp_enqueue_style('theme-style', get_stylesheet_directory_uri() . '/style.css', array(), filemtime(get_stylesheet_directory() . '/style.css'));

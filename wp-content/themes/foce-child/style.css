@@ -8,7 +8,6 @@
  Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
  Version: 0.1
  */
-/* ---------- Animation au chargement de la page ---------- */
 @keyframes fade-in-down {
   0% {
     opacity: 0;
@@ -29,35 +28,31 @@
     transform: translateY(0);
   }
 }
-.banner {
-  position: relative;
-  -o-object-fit: contain;
-     object-fit: contain;
-  height: 800px;
-  background-image: none;
+@keyframes floatLogo {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  25% {
+    transform: translate3d(-15px, 10px, 0);
+  }
+  50% {
+    transform: translate3d(15px, 0px, 0);
+  }
+  75% {
+    transform: translate3d(-15px, 10px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }
-.banner__background {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  min-width: 1440px !important;
-  opacity: 1;
-  animation: fade-in-down 2s ease-in-out 300ms both;
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-.banner__logo {
-  opacity: 1;
-  animation: fade-in-up 2s ease-in-out 300ms both;
-}
-
-.story, #studio, .site-footer {
-  animation: fade-in-up 2s ease-in-out;
-}
-
-.banner, .story__article p, #place p, #studio p {
-  animation: fade-in-down 2s ease-in-out;
-}
-
-/* effet de fleurs qui tournent en continu sur elles-mêmes */
 @keyframes rotation {
   0% {
     transform: rotate(0deg);
@@ -66,6 +61,76 @@
     transform: rotate(360deg);
   }
 }
+@keyframes apparition {
+  from {
+    transform: translateY(120px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* ---------- Animation des sections au chargement de la page ---------- */
+.story, #studio, .site-footer {
+  animation: fade-in-up 10s ease-in-out;
+}
+
+.banner, .story__article p, #place p, #studio p {
+  animation: fade-in-down 10s ease-in-out;
+}
+
+.banner {
+  position: relative;
+}
+.banner img {
+  z-index: 1;
+  position: sticky;
+  margin-top: -14%;
+  margin-left: 1%;
+  width: 51em;
+  animation: floatLogo 6s 10s ease-in-out infinite, fade-in-up 10s ease-in-out;
+}
+.banner__video {
+  -o-object-fit: fill;
+     object-fit: fill;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  z-index: 0;
+}
+
+parallaxe #logo-parallax {
+  z-index: 10;
+}
+
+/* -------------effet de fleurs qui tournent en continu sur elles-mêmes ------------------*/
+/* Rotation des fleurs
+:root {
+  --rotation: 12s;
+}
+.story h2::after {
+  width: 154px;
+  height: 154px;
+}
+#studio h2::after {
+  width: 125px;
+  height: 125px;
+}
+.site-footer::after {
+	position: absolute;
+	right: -4em;
+	bottom: 32em;
+}
+
+.story__article::after, 
+h2::after, 
+#studio h2::before, 
+.site-footer::before, 
+.site-footer::after, 
+ul::after {
+  animation: rotation 5s linear infinite;
+}*/
 .story__article::after,
 .story h2::after,
 .site-footer ul::after,
@@ -115,23 +180,8 @@
   top: 1.2em;
 }
 
-.invisible {
-  opacity: 0;
-}
-
-.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-h2 span, h3 span {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(80px);
-  transition: transform 1s, opacity 0.5s;
-}
-
-/*section-finale des oscars*/
+/* ------------------Apparition des titres au scroll----------------------------*/
+/*--------------------section-finale des oscars---------------------*/
 .nominations {
   display: flex;
   justify-content: center;
@@ -157,4 +207,38 @@ h2 span, h3 span {
 
 .site-footer ul {
   margin-top: 25%;
+}
+
+/*-------------------carroussel des chats--------------------------*/
+#story.story {
+  overflow: hidden;
+}
+#story.story #characters h3 {
+  width: 55%;
+}
+
+.swiper-slide {
+  width: 300px;
+  height: auto;
+}
+
+/*---------------parralaxe des nuages -----------------------*/
+.story #place {
+  background-image: url("./assets/images/Studio_Koukaki-image_place.png");
+  background-size: cover;
+}
+
+#big_cloud {
+  position: absolute;
+  top: 69%;
+  display: block;
+  left: calc(-3% - 300px);
+  filter: blur(15px);
+}
+
+#little_cloud {
+  position: absolute;
+  top: 78%;
+  left: calc(-21% - 300px);
+  filter: blur(15px);
 }/*# sourceMappingURL=style.css.map */
