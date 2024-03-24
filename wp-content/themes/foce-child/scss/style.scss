@@ -133,9 +133,6 @@ ul::after {
   top: 1.2em;
 }
 
-/* ------------------Apparition des titres au scroll----------------------------*/
-
-
 
 
 /*--------------------section-finale des oscars---------------------*/
@@ -152,11 +149,14 @@ ul::after {
 
 .nominations h3{
 	background-image: url("./assets/images/fondorange.png");
-   font-size: 2.5rem;
-   text-align: left;
-   margin-bottom: 10px;
+   background-size: 100% 100%;
+  background-repeat: no-repeat;
+  line-height: 1;
+  flex-wrap: wrap;
 
 }
+
+
 .nominations img{
 	object-fit: contain;
 }
@@ -176,10 +176,29 @@ ul::after {
   }
 }
 
-.swiper-slide {
-  width: 300px;
-  height: auto;
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  margin: auto;
+  margin-left: 3.5em !important;
+
+  &-slide {
+      background-position: center;
+      background-size: cover;
+      width: 350px !important;
+      height: 350px;
+      margin-right: 40px;
+      margin-left: 40px;
+  }
+
+  img {
+      display: block;
+      width: 100%;
+  }
 }
+
 
 /*---------------parralaxe des nuages -----------------------*/
 .story #place {
@@ -201,4 +220,28 @@ ul::after {
   filter: blur(15px);
 }
 
+
+ // Animation des titres
+// Création d'un keyframe pour l'apparition des titres
+@keyframes apparition {
+  from {
+    transform: translateY(120px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+// Animation des titres
+.animation-titres {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  & > span {
+    opacity: 0;
+  }
+  .texte-mot {
+    animation: apparition 2s ease-in-out forwards;
+  }
+}
 
